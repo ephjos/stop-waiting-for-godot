@@ -26,10 +26,10 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():	
-	# TODO: animate muzzle flash
 	var b = BlueBullet.instance()
 	owner.add_child(b)
 	b.transform = $Barrel.global_transform
+	$Flash.play()
 
 func hit():
 	# TODO: animate hit
@@ -40,3 +40,6 @@ func hit():
 		emit_signal("dead")
 		queue_free()
 
+func _on_Flash_animation_finished():
+	$Flash.stop()
+	$Flash.frame = 0

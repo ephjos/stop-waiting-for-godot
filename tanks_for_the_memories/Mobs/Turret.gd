@@ -39,9 +39,12 @@ func shoot():
 	var b = Bullet.instance()
 	owner.add_child(b)
 	b.transform = $Barrel.global_transform
+	$Flash.play()
 
 func hit():
 	# TODO: animate hit
 	queue_free()
 
-	
+func _on_Flash_animation_finished():
+	$Flash.stop()
+	$Flash.frame = 0

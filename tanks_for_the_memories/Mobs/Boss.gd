@@ -46,13 +46,17 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	# TODO: animate muzzle flash
 	
+	var barrels = [$Barrel1, $Barrel2, $Barrel3]
+	var flashes = [$Flash1, $Flash2, $Flash3]
+	
 	for i in 32:
-		for barrel in [$Barrel1, $Barrel2, $Barrel3]:
+		for barrel in 2:
 			var flip = rng.randf_range(0,1)
 			if flip > 0.4:	
 				var b = Bullet.instance()
 				owner.add_child(b)
-				b.transform = barrel.global_transform		
+				b.transform = barrels[barrel].global_transform
+				flashes[barrel].play()
 		yield(get_tree().create_timer(rng.randf_range(0.005,0.05)), "timeout")
 	
 	shootTimer.wait_time = rng.randf_range(1.5,8)
@@ -65,3 +69,16 @@ func hit():
 		queue_free()
 
 	
+
+
+func _on_Flash1_animation_finished():
+	$Flash1.stop()
+	$Flash1.frame = 0
+
+func _on_Flash2_animation_finished():
+	$Flash2.stop()
+	$Flash2.frame = 0
+
+func _on_Flash3_animation_finished():
+	$Flash3.stop()
+	$Flash3.frame = 0

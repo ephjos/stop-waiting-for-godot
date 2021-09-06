@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/PNG/Default size/tank_huge.png" type="Texture" id=1]
 [ext_resource path="res://Mobs/Boss.gd" type="Script" id=2]
+[ext_resource path="res://resources/MuzzleFlash.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 88, 96 )
@@ -36,3 +37,28 @@ position = Vector2( 128, 24 )
 
 [node name="Barrel3" type="Position2D" parent="."]
 position = Vector2( 128, 0 )
+
+[node name="Flash1" type="AnimatedSprite" parent="."]
+position = Vector2( 136, -24 )
+rotation = -1.5708
+scale = Vector2( 1.90625, 1.90625 )
+frames = ExtResource( 3 )
+frame = 1
+
+[node name="Flash2" type="AnimatedSprite" parent="."]
+position = Vector2( 136, 24 )
+rotation = -1.5708
+scale = Vector2( 1.90625, 1.90625 )
+frames = ExtResource( 3 )
+frame = 1
+
+[node name="Flash3" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 2.38419e-07 )
+rotation = -1.5708
+scale = Vector2( 1.90625, 1.90625 )
+frames = ExtResource( 3 )
+frame = 1
+
+[connection signal="animation_finished" from="Flash1" to="." method="_on_Flash1_animation_finished"]
+[connection signal="animation_finished" from="Flash2" to="." method="_on_Flash2_animation_finished"]
+[connection signal="animation_finished" from="Flash3" to="." method="_on_Flash3_animation_finished"]

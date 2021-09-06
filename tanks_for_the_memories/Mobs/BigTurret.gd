@@ -43,11 +43,12 @@ func shoot():
 	
 	if barrel1:
 		b.transform = $Barrel1.global_transform
+		$Flash1.play()
 	else:
 		b.transform = $Barrel2.global_transform
+		$Flash2.play()
 	
-	barrel1 = !barrel1
-		
+	barrel1 = !barrel1		
 
 func hit():
 	# TODO: animate hit
@@ -56,5 +57,10 @@ func hit():
 	if health <= 0:
 		queue_free()
 
+func _on_Flash1_animation_finished():
+	$Flash1.stop()
+	$Flash1.frame = 0
 
-	
+func _on_Flash2_animation_finished():
+	$Flash2.stop()
+	$Flash2.frame = 0
