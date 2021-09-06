@@ -1,8 +1,17 @@
 extends Node2D
 
 const Level_1 = preload("res://Levels/Level_1.tscn")
+const Level_2 = preload("res://Levels/Level_2.tscn")
+const Level_3 = preload("res://Levels/Level_3.tscn")
 
-const levels = [Level_1, Level_1]
+const Level_10 = preload("res://Levels/Level_10.tscn")
+
+const levels = [
+#	Level_1, 
+#	Level_2,
+#	Level_3,
+	Level_10,
+]
 
 var currentLevelIndex
 var currentLevelInstance

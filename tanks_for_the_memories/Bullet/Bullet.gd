@@ -9,7 +9,7 @@ func _physics_process(delta):
 	position += transform.x * speed * delta
 
 func _on_Bullet_body_entered(body):
-	if body.is_in_group("mobs") or body.is_in_group("player"):
+	if body.is_in_group("mobs") or body.is_in_group("player") or body.is_in_group("obstacle"):
 		body.hit()
 		
 	if body.is_in_group("low_obstacle"):

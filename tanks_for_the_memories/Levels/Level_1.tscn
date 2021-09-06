@@ -1,14 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Tilesheet/terrainTiles_default.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Mobs/Grunt.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Level_1.gd" type="Script" id=4]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Mobs/Turret.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Mobs/BigTurret.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Mobs/BigGrunt.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Sandbag.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Crate.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
@@ -63,45 +59,20 @@ polygon = PoolVector2Array( 20.8, 48, 20.8, 64, -1259.2, 64, -1259.2, 48 )
 position = Vector2( 1260, 712 )
 polygon = PoolVector2Array( 20, 48, 20, 64, -1260, 64, -1260, 48 )
 
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="Crate" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 328, 392 )
+
+[node name="Sandbags" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 232, 392 )
 
-[node name="Grunt" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1016, 392 )
-rotation = 3.14159
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Turret" parent="." instance=ExtResource( 6 )]
-position = Vector2( 648, 568 )
-
-[node name="BigTurret" parent="." instance=ExtResource( 7 )]
-position = Vector2( 888, 232 )
-
-[node name="BigGrunt" parent="." instance=ExtResource( 8 )]
-position = Vector2( 976, 624 )
-
-[node name="Sandbag" parent="." instance=ExtResource( 9 )]
-position = Vector2( 376, 384 )
-rotation = 0.785397
-
-[node name="Sandbag2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 392, 400 )
-rotation = 0.785397
-
-[node name="Sandbag3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 408, 416 )
-rotation = 0.785397
-
-[node name="Crate2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 504, 256 )
-
-[node name="Crate3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 536, 296 )
-
-[node name="Crate4" parent="." instance=ExtResource( 10 )]
-position = Vector2( 564, 344 )
-
-[node name="Crate" parent="." instance=ExtResource( 10 )]
-position = Vector2( 592, 392 )
+[node name="Turret" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1000, 392 )
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
