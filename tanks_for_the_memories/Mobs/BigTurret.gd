@@ -2,13 +2,13 @@ extends KinematicBody2D
 
 const Bullet = preload("res://Bullet/RedBullet.tscn")
 
-var health = 8
+var health = 20
 var player 
 export var rotation_speed : = 1 / 5.0
 var heading = Vector2() # the direction the tank is pointing
 
 var shootTimer
-var shootDelay = 1.250
+var shootDelay = 0.750
 var canShoot = true
 var barrel1 = true
 

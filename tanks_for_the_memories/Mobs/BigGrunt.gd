@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const Bullet = preload("res://Bullet/RedBullet.tscn")
 
-var health = 5
+var health = 15
 var player 
 export var move_speed : = 20
 export var rotation_speed : = 1 / 5.0
