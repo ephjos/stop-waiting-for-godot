@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nolan_capek-radiant_gift.mp3-fa61d7fba13239f1bd3556dfdc9e0327.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/nolan_capek-radiant_gift.mp3"
+dest_files=[ "res://.import/nolan_capek-radiant_gift.mp3-fa61d7fba13239f1bd3556dfdc9e0327.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

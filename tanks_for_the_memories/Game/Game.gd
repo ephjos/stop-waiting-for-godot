@@ -31,6 +31,8 @@ func _ready():
 	$RetryPopup.hide()
 	$NextLevel.hide()
 	$Victory.hide()
+	$Music.play()
+
 
 func _on_MainMenu_start_game():
 	$MainMenu.hide()
@@ -45,6 +47,7 @@ func _set_current_level(index):
 	
 func _level_failed():
 	$RetryPopup.show()
+	$Lose.play()
 
 func _on_RetryPopup_quit():
 	currentLevelInstance.queue_free()
@@ -58,6 +61,7 @@ func _on_RetryPopup_retry():
 	$RetryPopup.hide()
 
 func _level_won():
+	$Win.play()
 	for bullet in get_tree().get_nodes_in_group("bullets"):
 		bullet.queue_free()
 		
@@ -66,6 +70,9 @@ func _level_won():
 		$NextLevel.show()
 	else:
 		$Victory.show()
+		$Music.stop()
+		$Applause.play()
+		
 
 func _on_NextLevel_pressed():
 	currentLevelIndex += 1
@@ -78,3 +85,5 @@ func _on_Victory_back():
 	$NextLevel.hide()
 	$Victory.hide()
 	$MainMenu.show()
+	$Applause.stop()
+	$Music.play()

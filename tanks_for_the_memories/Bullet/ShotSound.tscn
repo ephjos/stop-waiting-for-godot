@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sounds/shot.mp3" type="AudioStream" id=1]
+
+[node name="ShotSound" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )

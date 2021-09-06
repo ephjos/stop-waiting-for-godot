@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://UI/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/RetryPopup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/Victory.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sounds/nolan_capek-radiant_gift.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/win.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/lose.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/applause.wav" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.203922, 0.321569, 0.878431, 1 )
@@ -19,6 +23,13 @@ font_path = "res://assets/Fonts/Urbanist-Regular.ttf"
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = SubResource( 2 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "ui_select"
+pressed = true
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,12 +49,29 @@ margin_right = 1260.0
 margin_bottom = 746.0
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 3 )
+shortcut = SubResource( 5 )
 text = "Next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Victory" parent="." instance=ExtResource( 4 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="Applause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0
 
 [connection signal="start_game" from="MainMenu" to="." method="_on_MainMenu_start_game"]
 [connection signal="quit" from="RetryPopup" to="." method="_on_RetryPopup_quit"]
