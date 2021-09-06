@@ -34,7 +34,7 @@ func _ready():
 
 func _on_MainMenu_start_game():
 	$MainMenu.hide()
-	_set_current_level(8)
+	_set_current_level(0)
 
 func _set_current_level(index):
 	currentLevelIndex = index

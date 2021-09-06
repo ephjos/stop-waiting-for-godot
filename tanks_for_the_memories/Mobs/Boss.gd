@@ -50,7 +50,7 @@ func shoot():
 	var flashes = [$Flash1, $Flash2, $Flash3]
 	
 	for i in 32:
-		for barrel in 2:
+		for barrel in 3:
 			var flip = rng.randf_range(0,1)
 			if flip > 0.4:	
 				var b = Bullet.instance()
@@ -67,9 +67,6 @@ func hit():
 	health -= 1
 	if health <= 0:
 		queue_free()
-
-	
-
 
 func _on_Flash1_animation_finished():
 	$Flash1.stop()
