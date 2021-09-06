@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level_8.gd" type="Script" id=3]
+[ext_resource path="res://Mobs/BigTurret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Mobs/Turret.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Sandbag.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Mobs/BigGrunt.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Crate.tscn" type="PackedScene" id=10]
+
+[node name="Level_8" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65536, 26, 0, 65537, 26, 0, 65538, 26, 0, 65539, 26, 0, 65540, 26, 0, 65541, 26, 0, 65542, 26, 0, 65543, 26, 0, 65544, 26, 0, 65545, 26, 0, 65546, 26, 0, 65547, 35, 0, 65548, 26, 0, 65549, 26, 0, 65550, 26, 0, 65551, 26, 0, 65552, 26, 0, 65553, 26, 0, 65554, 26, 0, 65555, 26, 0, 131072, 26, 0, 131073, 26, 0, 131074, 26, 0, 131075, 26, 0, 131076, 26, 0, 131077, 26, 0, 131078, 26, 0, 131079, 26, 0, 131080, 26, 0, 131081, 26, 0, 131082, 26, 0, 131083, 35, 0, 131084, 26, 0, 131085, 26, 0, 131086, 26, 0, 131087, 26, 0, 131088, 26, 0, 131089, 26, 0, 131090, 26, 0, 131091, 26, 0, 196608, 26, 0, 196609, 26, 0, 196610, 26, 0, 196611, 26, 0, 196612, 26, 0, 196613, 26, 0, 196614, 26, 0, 196615, 26, 0, 196616, 26, 0, 196617, 26, 0, 196618, 26, 0, 196619, 35, 0, 196620, 26, 0, 196621, 26, 0, 196622, 26, 0, 196623, 26, 0, 196624, 26, 0, 196625, 26, 0, 196626, 26, 0, 196627, 26, 0, 262144, 34, 0, 262145, 34, 0, 262146, 34, 0, 262147, 34, 0, 262148, 34, 0, 262149, 34, 0, 262150, 34, 0, 262151, 34, 0, 262152, 34, 0, 262153, 34, 0, 262154, 34, 0, 262155, 39, 0, 262156, 26, 0, 262157, 26, 0, 262158, 26, 0, 262159, 26, 0, 262160, 26, 0, 262161, 26, 0, 262162, 26, 0, 262163, 26, 0, 327680, 26, 0, 327681, 26, 0, 327682, 26, 0, 327683, 26, 0, 327684, 26, 0, 327685, 26, 0, 327686, 26, 0, 327687, 26, 0, 327688, 26, 0, 327689, 26, 0, 327690, 26, 0, 327691, 35, 0, 327692, 26, 0, 327693, 26, 0, 327694, 26, 0, 327695, 26, 0, 327696, 26, 0, 327697, 26, 0, 327698, 26, 0, 327699, 26, 0, 393216, 34, 0, 393217, 34, 0, 393218, 34, 0, 393219, 34, 0, 393220, 34, 0, 393221, 34, 0, 393222, 34, 0, 393223, 34, 0, 393224, 34, 0, 393225, 34, 0, 393226, 34, 0, 393227, 32, 0, 393228, 34, 0, 393229, 34, 0, 393230, 34, 0, 393231, 34, 0, 393232, 34, 0, 393233, 34, 0, 393234, 34, 0, 393235, 34, 0, 458752, 26, 0, 458753, 26, 0, 458754, 26, 0, 458755, 26, 0, 458756, 26, 0, 458757, 26, 0, 458758, 26, 0, 458759, 26, 0, 458760, 26, 0, 458761, 26, 0, 458762, 26, 0, 458763, 35, 0, 458764, 26, 0, 458765, 26, 0, 458766, 26, 0, 458767, 26, 0, 458768, 26, 0, 458769, 26, 0, 458770, 26, 0, 458771, 26, 0, 524288, 26, 0, 524289, 26, 0, 524290, 26, 0, 524291, 26, 0, 524292, 26, 0, 524293, 26, 0, 524294, 26, 0, 524295, 26, 0, 524296, 26, 0, 524297, 26, 0, 524298, 26, 0, 524299, 35, 0, 524300, 26, 0, 524301, 26, 0, 524302, 26, 0, 524303, 26, 0, 524304, 26, 0, 524305, 26, 0, 524306, 26, 0, 524307, 26, 0, 589824, 26, 0, 589825, 26, 0, 589826, 26, 0, 589827, 26, 0, 589828, 26, 0, 589829, 26, 0, 589830, 26, 0, 589831, 26, 0, 589832, 26, 0, 589833, 26, 0, 589834, 26, 0, 589835, 35, 0, 589836, 26, 0, 589837, 26, 0, 589838, 26, 0, 589839, 26, 0, 589840, 26, 0, 589841, 26, 0, 589842, 26, 0, 589843, 26, 0, 655360, 26, 0, 655361, 26, 0, 655362, 26, 0, 655363, 26, 0, 655364, 26, 0, 655365, 26, 0, 655366, 26, 0, 655367, 26, 0, 655368, 26, 0, 655369, 26, 0, 655370, 26, 0, 655371, 35, 0, 655372, 26, 0, 655373, 26, 0, 655374, 26, 0, 655375, 26, 0, 655376, 26, 0, 655377, 26, 0, 655378, 26, 0, 655379, 26, 0, 720896, 26, 0, 720897, 26, 0, 720898, 26, 0, 720899, 26, 0, 720900, 26, 0, 720901, 26, 0, 720902, 26, 0, 720903, 26, 0, 720904, 26, 0, 720905, 26, 0, 720906, 26, 0, 720907, 35, 0, 720908, 26, 0, 720909, 26, 0, 720910, 26, 0, 720911, 26, 0, 720912, 26, 0, 720913, 26, 0, 720914, 26, 0, 720915, 26, 0 )
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+margin_bottom = 0.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -8, 0 )
+polygon = PoolVector2Array( 0, 64, 16, 64, 16, 768, 0, 768 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1272, 0 )
+polygon = PoolVector2Array( 0, 64, 16, 64, 16, 768, 0, 768 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1259.2, 8 )
+polygon = PoolVector2Array( 20.8, 48, 20.8, 64, -1259.2, 64, -1259.2, 48 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1260, 712 )
+polygon = PoolVector2Array( 20, 48, 20, 64, -1260, 64, -1260, 48 )
+
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="Crate" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 320, 392 )
+
+[node name="Crate2" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 280, 336 )
+
+[node name="Crate3" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 232, 320 )
+
+[node name="Crate4" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 280, 448 )
+
+[node name="Crate5" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 224, 476 )
+
+[node name="Crate6" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 176, 456 )
+
+[node name="Crate7" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 148, 408 )
+
+[node name="Crate8" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 176, 336 )
+
+[node name="Crate9" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 152, 376 )
+
+[node name="Crate10" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 544, 272 )
+
+[node name="Crate11" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 544, 416 )
+
+[node name="Crate12" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 544, 552 )
+
+[node name="Crate13" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 336, 584 )
+
+[node name="Crate14" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 336, 640 )
+
+[node name="Crate15" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 352, 224 )
+
+[node name="Crate16" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 352, 176 )
+
+[node name="Sandbags" type="Node2D" parent="."]
+
+[node name="Sandbag" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 472, 528 )
+rotation = -1.57079
+
+[node name="Sandbag2" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 472, 496 )
+rotation = -1.57079
+
+[node name="Sandbag3" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 472, 464 )
+rotation = -1.57079
+
+[node name="Sandbag4" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 496, 288 )
+rotation = -2.35619
+
+[node name="Sandbag5" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 472, 264 )
+rotation = -2.35619
+
+[node name="Sandbag6" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 448, 240 )
+rotation = -2.35619
+
+[node name="Sandbag7" parent="Sandbags" instance=ExtResource( 7 )]
+position = Vector2( 424, 216 )
+rotation = -2.35619
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232, 392 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="BigTurret" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 728, 224 )
+
+[node name="BigTurret4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 728, 616 )
+
+[node name="BigTurret5" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 648, 128 )
+
+[node name="BigTurret6" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 640, 696 )
+
+[node name="BigGrunt2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1104, 304 )
+
+[node name="BigGrunt3" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1104, 480 )
+
+[node name="Turret2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1000, 200 )
+
+[node name="Turret3" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1024, 560 )
+
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
