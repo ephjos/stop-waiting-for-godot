@@ -1,15 +1,17 @@
 extends KinematicBody2D
 
-const Bullet = preload("res://Bullet/DarkBullet.tscn")
+const Bullet = preload("res://Bullet/RedBullet.tscn")
 
+var health = 5
 var player 
-export var move_speed : = 25.0
-export var rotation_speed : = 1 / 15.0
+export var move_speed : = 20
+export var rotation_speed : = 1 / 5.0
 var heading = Vector2() # the direction the tank is pointing
 
 var shootTimer
-var shootDelay = 1.000
+var shootDelay = 1.250
 var canShoot = true
+var barrel1 = true
 
 func _ready():
 	shootTimer = Timer.new()
@@ -44,10 +46,21 @@ func shoot():
 	# TODO: animate muzzle flash
 	var b = Bullet.instance()
 	owner.add_child(b)
-	b.transform = $Barrel.global_transform
+	
+	if barrel1:
+		b.transform = $Barrel1.global_transform
+	else:
+		b.transform = $Barrel2.global_transform
+	
+	barrel1 = !barrel1
+		
 
 func hit():
 	# TODO: animate hit
-	queue_free()
+	
+	health -= 1
+	if health <= 0:
+		queue_free()
+
 
 	

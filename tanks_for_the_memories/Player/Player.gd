@@ -3,8 +3,9 @@ extends KinematicBody2D
 const BlueBullet = preload("res://Bullet/BlueBullet.tscn")
 
 signal hit
+signal dead
 
-export var health = 3
+export var health = 30 # 15
 export var move_speed : = 250.0
 export var rotation_speed : = 1 / 15.0
 var heading = Vector2() # the direction the tank is pointing
@@ -36,5 +37,6 @@ func hit():
 	health -= 1
 	emit_signal("hit", health)
 	if health <= 0:
+		emit_signal("dead")
 		queue_free()
 

@@ -1,6 +1,9 @@
 extends Area2D
 
-var speed = 750
+var speed = 600
+
+func _ready():
+	add_to_group("bullets")
 
 func _physics_process(delta):
 	position += transform.x * speed * delta

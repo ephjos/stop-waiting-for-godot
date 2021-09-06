@@ -1,14 +1,13 @@
 extends KinematicBody2D
 
-const Bullet = preload("res://Bullet/DarkBullet.tscn")
+const Bullet = preload("res://Bullet/RedBullet.tscn")
 
 var player 
-export var move_speed : = 25.0
-export var rotation_speed : = 1 / 15.0
+export var rotation_speed : = 1 / 10.0
 var heading = Vector2() # the direction the tank is pointing
 
 var shootTimer
-var shootDelay = 1.000
+var shootDelay = 0.750
 var canShoot = true
 
 func _ready():
@@ -29,11 +28,6 @@ func _physics_process(delta: float) -> void:
 	# Look at player
 	heading = position.direction_to(player.position).normalized()
 	rotation = heading.angle()
-	
-	# Drive towards player
-	move_and_slide(heading * move_speed, Vector2())
-	
-	# TODO: animate tire tracks
 	
 	if canShoot:		
 		shoot()
